@@ -127,7 +127,7 @@ for epoch in range(epochs):
             val_log['iou'],
         ], index=['epoch', 'loss', 'iou', 'val_loss', 'val_iou'])
 
-    log = log.append(tmp, ignore_index=True)
+    log = pd.concat([log, tmp], ignore_index=True)
     log.to_csv('models/log.csv', index=False)
 
     trigger += 1
